@@ -34,3 +34,5 @@ STM32F429..
 
 You may download the examples and import the projects similar way to 
 get started..
+
+* https://github.com/ArselonHub/ArtCoreExamples-stm32f429i-disco

@@ -13,6 +13,8 @@ namespace Art
 	class Sdram
 	{
 	public:
+		Sdram();
+		virtual ~Sdram();
 		SdramController* controller() const;
 		void setController(SdramController* controller);
 		Word open();

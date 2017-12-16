@@ -15,6 +15,7 @@ namespace Art
 	class IS42S16400J_7 : public Sdram
 	{
 	public:
+		virtual ~IS42S16400J_7();
 		virtual UInt capacity();
 	private:
 		virtual void configureController();

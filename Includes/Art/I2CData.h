@@ -12,7 +12,6 @@
 
 namespace Art
 {
-
 	class I2CData
 	{
 	public:
@@ -22,12 +21,20 @@ namespace Art
 		void* buffer() const;
 		Word length() const;
 		I2CData* next() const;
-
 	private:
+		I2CData();
+
 		I2CData*	m_next;
 		void*		m_buffer;
 		Word		m_length;
 	};
+
+	inline I2CData::I2CData()
+	{
+		m_buffer = 0;
+		m_length = 0;
+		m_next = 0;
+	}
 
 	inline I2CData::I2CData(void* buffer, Word length)
 	{
@@ -53,11 +60,11 @@ namespace Art
 		return m_length;
 	}
 
-	inline Art::I2CData* I2CData::next() const
+
+	inline I2CData* I2CData::next() const
 	{
 		return m_next;
 	}
-
 } /* namespace Art */
 
 #endif /* SOURCE_ART_I2CDATA_H_ */

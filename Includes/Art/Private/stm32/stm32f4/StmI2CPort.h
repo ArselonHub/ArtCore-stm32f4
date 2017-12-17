@@ -10,6 +10,7 @@
 
 #include <Art/I2CPort.h>
 #include <Art/Mcu.h>
+#include <Art/I2CData.h>
 
 namespace Art
 {
@@ -18,6 +19,7 @@ namespace Art
 		class StmI2CPort : public Art::I2CPort
 		{
 		public:
+			virtual ~StmI2CPort();
 			Pin* sclPin() const;
 			Pin* sdaPin() const;
 			void setSclPin(Pin* sclPin);
@@ -29,6 +31,7 @@ namespace Art
 			void processEventIrq();
 			void processErrorIrq();
 			void configurePin(Pin* pin);
+
 		private:
 			void readOne();
 			void writeOne();
@@ -41,22 +44,17 @@ namespace Art
 
 			virtual void powerUp() = 0;
 			virtual void powerDown() = 0;
+			void stop();
 
 			I2C_TypeDef*	m_port;
-			Pin*		m_sclPin;
-			Pin*		m_sdaPin;
-			I2CData*		m_data;
+			Pin*			m_sclPin;
+			Pin*			m_sdaPin;
 			Word			m_bufferIndex;
 			Word			m_transferredBytes;
 			Word			m_totalLength;
+			I2CData* 		m_data;
 			I2CSlave*		m_slaves[2];
 		};
-
-		inline StmI2CPort::StmI2CPort(I2C_TypeDef* port)
-		{
-			m_port = port;
-		}
-
 
 		inline I2C_TypeDef* StmI2CPort::port()
 		{
@@ -82,8 +80,12 @@ namespace Art
 		{
 			m_sdaPin = sdaPin;
 		}
-	}
 
+		inline void StmI2CPort::stop()
+		{
+			m_port->CR1 |= I2C_CR1_STOP;
+		}
+	}
 }
 
 #include <Art/Private/stm32/stm32f4/StmI2CPort2.h>

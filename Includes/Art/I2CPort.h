@@ -9,8 +9,8 @@
 #define ART_I2CPORT_H_
 
 #include <Art/Pin.h>
-#include <Art/I2CRequest.h>
 #include <Art/Task.h>
+#include <Art/I2CDevice.h>
 
 namespace Art
 {
@@ -18,6 +18,10 @@ namespace Art
 
 	class I2CPort
 	{
+	public:
+		I2CPort();
+		virtual ~I2CPort();
+
 	protected:
 		void performReadRequestedIrq(I2CSlave* slave);
 		void performWriteRequestedIrq(I2CSlave* slave);
@@ -26,9 +30,10 @@ namespace Art
 		void performGenericCall();
 		void setResponseValueIrq(Word responseValue);
 
-		I2CRequest* currentRequest();
+		Word currentAddress();
+		I2CData* currentData();
 	private:
-		Word enqueue(I2CRequest* request);
+		Word enqueue(I2CDevice* device);
 		Word open();
 		Word close();
 		Word resetBus();
@@ -60,10 +65,9 @@ namespace Art
 
 		void setBusStateIrq(BusState value);
 
-
 		I2CSlave*				m_currentSlave;
-		I2CRequest*				m_currentRequest;
-		BasicQueue<I2CRequest>	m_requests;
+		I2CDevice*				m_currentRequester;
+		BasicQueue<I2CDevice>	m_requesters;
 		UByte					m_openCount;
 		BusState				m_busState;
 		BusTask					m_busTask;
@@ -73,9 +77,14 @@ namespace Art
 		friend class I2CDevice;
 	};
 
-	inline I2CRequest* I2CPort::currentRequest()
+	inline Word I2CPort::currentAddress()
 	{
-		return m_currentRequest;
+		return m_currentRequester->m_address;
+	}
+
+	inline I2CData* I2CPort::currentData()
+	{
+		return m_currentRequester->m_data;
 	}
 }
 

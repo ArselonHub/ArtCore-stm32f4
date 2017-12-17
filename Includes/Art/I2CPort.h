@@ -72,6 +72,7 @@ namespace Art
 		BusState				m_busState;
 		BusTask					m_busTask;
 		Word					m_responseValue;
+		Word					m_errorCount;
 
 		friend class I2CSlave;
 		friend class I2CDevice;

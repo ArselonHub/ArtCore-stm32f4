@@ -32,9 +32,11 @@ namespace Art
 		Word write(void* buffer, Word length);
 		Word write(void* buffer0, Word length0, void* buffer1, Word length1);
 		Word writeRegister(Word registerAddress, void* buffer, Word length);
+		Word writeRegister(Word registerAddress, Word value);
 		Word read(I2CData* data);
 		Word read(I2CData* data, Response* response);
 		Word read(void* buffer, Word length);
+		Word readRegister(Word registerAddress);
 		Word readRegister(Word registerAddress, void* buffer, Word length);
 	private:
 		Word request(I2CData* data, Response* response, bool isRead);
@@ -55,6 +57,7 @@ namespace Art
 	{
 		return m_port;
 	}
+
 
 } /* namespace Art */
 

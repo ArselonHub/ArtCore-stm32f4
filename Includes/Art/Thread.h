@@ -136,6 +136,7 @@ namespace Art
 	
 	extern void handleCriticalError();
 	extern Thread* currentThread();
+	extern Thread* mainThread();
 
 	inline void Thread::setName(const Char* value)
 	{

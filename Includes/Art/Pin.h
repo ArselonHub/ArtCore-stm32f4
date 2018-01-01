@@ -13,11 +13,11 @@
 #if defined(STM32F051)
 	#include <Art/stm32/stm32f0/PinDefinitions-stm32f051.h>
 #elif defined(__STM32F4XX__)
-	#include <Art/Private/stm32/stm32f4/PinPort-stm32f4.h>
+	#include <Art/Private/stm32/stm32f4/Pin-stm32f4.h>
 #elif defined(__LPC112X__)
 	#include <Art/Private/lpc/lpc112x/Gpio-lpc112x.h>
 #elif defined(__LPC17XX__)
-	#include <Art/Private/lpc/lpc17/PinPort-lpc17.h>
+	#include <Art/Private/lpc/lpc17/Pin-lpc17.h>
 #elif defined(MSP430)
 	#include <Art/Private/msp430/Gpio-msp430.h>
 #elif defined(__CC2541__)

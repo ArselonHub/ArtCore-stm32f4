@@ -15,9 +15,9 @@ namespace Art
 	class UscibSpi : public Spi
 	{
 	public:
-		void setSckPin(const PinPort& value);
-		void setMosiPin(const PinPort& value);
-		void setMisoPin(const PinPort& value);
+		void setSckPin(const Pin& value);
+		void setMosiPin(const Pin& value);
+		void setMisoPin(const Pin& value);
 
 		virtual UWord shift(UWord value);
 		virtual void shift(void* txBuffer, void* rxBuffer, UShort length);

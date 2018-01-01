@@ -8,8 +8,8 @@ namespace Art
 {
 	namespace Bsp
 	{
-		const PinPort& led0PinPort = Port1::pin0;
-		const PinPort& button0Pin = Port1::pin1;
+		const Pin& led0PinPort = Port1::pin0;
+		const Pin& button0Pin = Port1::pin1;
 		static SerialPort& serialPort0 = uscia0Uart;
 	}
 	

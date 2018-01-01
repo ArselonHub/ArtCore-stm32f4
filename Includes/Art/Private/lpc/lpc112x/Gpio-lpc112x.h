@@ -43,63 +43,63 @@ namespace Art
 	class Port0
 	{
 	public:
-		static const PinPort& pin1();
-		static const PinPort& pin2();
-		static const PinPort& pin3();
-		static const PinPort& pin4();
-		static const PinPort& pin5();
-		static const PinPort& pin6();
-		static const PinPort& pin7();
-		static const PinPort& pin8();
-		static const PinPort& pin9();
-		static const PinPort& pin10();
-		static const PinPort& pin11();
+		static const Pin& pin1();
+		static const Pin& pin2();
+		static const Pin& pin3();
+		static const Pin& pin4();
+		static const Pin& pin5();
+		static const Pin& pin6();
+		static const Pin& pin7();
+		static const Pin& pin8();
+		static const Pin& pin9();
+		static const Pin& pin10();
+		static const Pin& pin11();
 	};
 
 	class Port1
 	{
 	public:
-		static const PinPort& pin0();
-		static const PinPort& pin1();
-		static const PinPort& pin2();
-		static const PinPort& pin3();
-		static const PinPort& pin4();
-		static const PinPort& pin5();
-		static const PinPort& pin6();
-		static const PinPort& pin7();
-		static const PinPort& pin8();
-		static const PinPort& pin9();
-		static const PinPort& pin10();
-		static const PinPort& pin11();
+		static const Pin& pin0();
+		static const Pin& pin1();
+		static const Pin& pin2();
+		static const Pin& pin3();
+		static const Pin& pin4();
+		static const Pin& pin5();
+		static const Pin& pin6();
+		static const Pin& pin7();
+		static const Pin& pin8();
+		static const Pin& pin9();
+		static const Pin& pin10();
+		static const Pin& pin11();
 	};
 
 
 	class Port2
 	{
 	public:
-		static const PinPort& pin0();
-		static const PinPort& pin1();
-		static const PinPort& pin2();
-		static const PinPort& pin3();
-		static const PinPort& pin4();
-		static const PinPort& pin5();
-		static const PinPort& pin6();
-		static const PinPort& pin7();
-		static const PinPort& pin8();
-		static const PinPort& pin9();
-		static const PinPort& pin10();
-		static const PinPort& pin11();
+		static const Pin& pin0();
+		static const Pin& pin1();
+		static const Pin& pin2();
+		static const Pin& pin3();
+		static const Pin& pin4();
+		static const Pin& pin5();
+		static const Pin& pin6();
+		static const Pin& pin7();
+		static const Pin& pin8();
+		static const Pin& pin9();
+		static const Pin& pin10();
+		static const Pin& pin11();
 	};
 
 	class Port3
 	{
 	public:
-		static const PinPort& pin0();
-		static const PinPort& pin1();
-		static const PinPort& pin2();
-		static const PinPort& pin3();
-		static const PinPort& pin4();
-		static const PinPort& pin5();
+		static const Pin& pin0();
+		static const Pin& pin1();
+		static const Pin& pin2();
+		static const Pin& pin3();
+		static const Pin& pin4();
+		static const Pin& pin5();
 	};
 
 	static inline Port0& port0() { return *((Port0*)0x10); }

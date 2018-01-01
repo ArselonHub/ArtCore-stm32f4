@@ -17,9 +17,9 @@ namespace Art
 	{
 	public:
 		Uscia0Uart();
-		void setRxPin(const PinPort& value);
-		void setTxPin(const PinPort& value);
-		void setRtsPin(const PinPort& value);
+		void setRxPin(const Pin& value);
+		void setTxPin(const Pin& value);
+		void setRtsPin(const Pin& value);
 
 		// Uart Interface
 		virtual void flushRxFifo();

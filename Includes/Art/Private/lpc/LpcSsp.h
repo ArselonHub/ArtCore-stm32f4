@@ -15,12 +15,12 @@ namespace Art
 		{
 		public:
 			LpcSsp(LPC_SSP_TypeDef* port);
-			PinPort* misoPin() const;
-			PinPort* mosiPin() const;
-			PinPort* sckPin() const;
-			void setMisoPin(PinPort* value);
-			void setMosiPin(PinPort* value);
-			void setSckPin(PinPort* value);
+			Pin* misoPin() const;
+			Pin* mosiPin() const;
+			Pin* sckPin() const;
+			void setMisoPin(Pin* value);
+			void setMosiPin(Pin* value);
+			void setSckPin(Pin* value);
 		protected:
 			LPC_SSP_TypeDef* port();
 
@@ -35,9 +35,9 @@ namespace Art
 					Word length);
 
 			LPC_SSP_TypeDef* port_;
-			PinPort* misoPin_;
-			PinPort* mosiPin_;
-			PinPort* sckPin_;
+			Pin* misoPin_;
+			Pin* mosiPin_;
+			Pin* sckPin_;
 		};
 
 		inline LpcSsp::LpcSsp(LPC_SSP_TypeDef* port)
@@ -45,32 +45,32 @@ namespace Art
 			port_ = port;
 		}
 
-		inline PinPort* LpcSsp::misoPin() const
+		inline Pin* LpcSsp::misoPin() const
 		{
 			return misoPin_;
 		}
 
-		inline PinPort* LpcSsp::mosiPin() const
+		inline Pin* LpcSsp::mosiPin() const
 		{
 			return mosiPin_;
 		}
 
-		inline PinPort* LpcSsp::sckPin() const
+		inline Pin* LpcSsp::sckPin() const
 		{
 			return sckPin_;
 		}
 
-		inline void LpcSsp::setMisoPin(PinPort* value)
+		inline void LpcSsp::setMisoPin(Pin* value)
 		{
 			misoPin_ = value;
 		}
 
-		inline void LpcSsp::setMosiPin(PinPort* value)
+		inline void LpcSsp::setMosiPin(Pin* value)
 		{
 			mosiPin_ = value;
 		}
 
-		inline void LpcSsp::setSckPin(PinPort* value)
+		inline void LpcSsp::setSckPin(Pin* value)
 		{
 			sckPin_ = value;
 		}

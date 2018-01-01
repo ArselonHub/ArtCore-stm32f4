@@ -40,27 +40,27 @@ namespace Art
 	class Port1 : public GpioPort
 	{
 	public:
-		static const PinPort& pin0();
-		static const PinPort& pin1();
-		static const PinPort& pin2();
-		static const PinPort& pin3();
-		static const PinPort& pin4();
-		static const PinPort& pin5();
-		static const PinPort& pin6();
-		static const PinPort& pin7();
+		static const Pin& pin0();
+		static const Pin& pin1();
+		static const Pin& pin2();
+		static const Pin& pin3();
+		static const Pin& pin4();
+		static const Pin& pin5();
+		static const Pin& pin6();
+		static const Pin& pin7();
 	};
 
 	class Port2 : public GpioPort
 	{
 	public:
-		static const PinPort& pin0();
-		static const PinPort& pin1();
-		static const PinPort& pin2();
-		static const PinPort& pin3();
-		static const PinPort& pin4();
-		static const PinPort& pin5();
-		static const PinPort& pin6();
-		static const PinPort& pin7();
+		static const Pin& pin0();
+		static const Pin& pin1();
+		static const Pin& pin2();
+		static const Pin& pin3();
+		static const Pin& pin4();
+		static const Pin& pin5();
+		static const Pin& pin6();
+		static const Pin& pin7();
 	};
 
 	inline Port1& port1() { return *((Port1*)1); }

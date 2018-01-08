@@ -29,3 +29,6 @@
 *.exe
 *.out
 *.app
+
+# OS Generated
+**/.DS_Store

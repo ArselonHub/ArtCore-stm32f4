@@ -14,6 +14,7 @@ namespace Art
     {
     public:
     	CoreTimer();
+    	virtual ~CoreTimer();
 		void start(ShortL interval);
 		void startSvc(ShortL interval);
 		void startWithJiffies(Int value);

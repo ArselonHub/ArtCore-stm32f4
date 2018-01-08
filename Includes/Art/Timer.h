@@ -8,14 +8,14 @@
 #ifndef ART_TIMER_H_
 #define ART_TIMER_H_
 
-#include <Art/CoreTimer.h>
 #include <Art/Object.h>
-#include <Art/Requester.h>
+#include <Art/CoreTimer.h>
 #include <Art/Task.h>
+#include <Art/Thread.h>
 
 namespace Art
 {
-	class Timer : private CoreTimer, private Object, public Requester
+	class Timer : public Object
 	{
 	public:
 		virtual ~Timer();
@@ -28,35 +28,38 @@ namespace Art
 		void setInterval(ShortL value);
 		void setAutoReset(Bool value);
 		Bool isRunning();
-	protected:
-		virtual void doTimeoutSvc();
+
+		Thread* thread() const;
+		void setThread(Thread* value);
 
 	private:
+		class CoreTimer : public Art::CoreTimer
+		{
+			virtual void doTimeoutSvc();
+		};
+
 		class TimeoutTask : public Task
 		{
 		public:
 			virtual void execute();
 		};
 
-		Int			jiffies_;
-		Short		interval_;
-		TimeoutTask timeoutTask_;
-		Bool		autoReset_;
+		Int			m_jiffies;
+		Short		m_interval;
+		TimeoutTask m_timeoutTask;
+		Bool		m_autoReset;
+		CoreTimer	m_coreTimer;
+		Thread*		m_thread;
 	};
 
-	inline void Timer::stop()
+	inline Thread* Timer::thread() const
 	{
-		CoreTimer::stop();
+		return m_thread;
 	}
 
-	inline void Timer::setAutoReset(Bool value)
+	inline void Timer::setThread(Thread* value)
 	{
-		this->autoReset_ = value;
-	}
-
-	inline Bool Timer::isRunning()
-	{
-		return CoreTimer::isRunning();
+		m_thread = value;
 	}
 
 } /* namespace Art */

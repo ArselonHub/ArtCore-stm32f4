@@ -8,139 +8,92 @@
 #ifndef ART_DATETIME_H_
 #define ART_DATETIME_H_
 
-#include <Art/Types.h>
+#include <Art/Date.h>
+#include <Art/Time.h>
 
 namespace Art
 {
-
-	enum Month
-	{
-		MonthJanuary = 1,
-		MonthFebruary,
-		MonthMarch,
-		MonthApril,
-		MonthMay,
-		MonthJune,
-		MonthJuly,
-		MonthAugust,
-		MonthSeptember,
-		MonthOctober,
-		MonthNovember,
-		MonthDecember
-	};
-
-	enum Day
-	{
-		DayMonday,
-		DayTuesday,
-		DayWednesday,
-		DayThursday,
-		DayFriday,
-		DaySaturday,
-		DaySunday
-	};
-
 	class DateTime
 	{
 	public:
 		DateTime();
-		UShortL year();
-		UWord month();
-		UWord day();
-		UWord hour();
-		UWord minute();
-		UWord second();
-		void setDate(UShortL year, Word month, Word day);
-		void setTime(Word hour, Word minute, Word second);
-		void setYear(UShortL value);
-		void setMonth(Month value);
-		void setMonth(UWord value);
-		void setDay(UWord value);
-		void setHour(UWord value);
-		void setMinute(UWord value);
-		void setSecond(UWord value);
+		DateTime(const Date& date, const Time& time);
+		const Date& date() const;
+		const Time& time() const;
+
+		Word year();
+		Word month();
+		Word day();
+		Word hour();
+		Word minute();
+		Word second();
+		Word setDate(Word year, Word month, Word day);
+		Word setTime(Word hour, Word minute);
+		Word setTime(Word hour, Word minute, Word second);
+		Word setTime(Word hour, Word minute, Word second, Word millisecond);
+		Bool isValid() const;
+		Bool isNull() const;
+
+		DateTime addYears(Word years);
+		DateTime addMonths(Word months);
+		DateTime addDays(Word days);
+		DateTime addHours(Word hours);
+		DateTime addMinutes(Word minutes);
+		DateTime addSeconds(Word seconds);
+		DateTime addMilliseconds(Word milliseconds);
+
+		Bool operator ==(const DateTime& r) const;
+		Bool operator !=(const DateTime& r) const;
+		Bool operator <(const DateTime& r) const;
+		Bool operator <=(const DateTime& r) const;
+		Bool operator >(const DateTime& r) const;
+		Bool operator >=(const DateTime& r) const;
 
 	private:
-		UShort 	year_;
-		UByte	month_;
-		UByte	day_;
-		UByte	hour_;
-		UByte	minute_;
-		UByte	second_;
+		DateTime addArray(Word* array);
+		Date	m_date;
+		Time	m_time;
 	};
 
-	inline UShortL DateTime::year()
+	inline Word DateTime::year()
 	{
-		return year_;
+		return m_date.year();
 	}
 
-	inline UWord DateTime::month()
+	inline Word DateTime::month()
 	{
-		return month_;
+		return m_date.month();
 	}
 
-	inline UWord DateTime::day()
+	inline Word DateTime::day()
 	{
-		return day_;
+		return m_date.day();
 	}
 
-	inline UWord DateTime::minute()
+	inline Word DateTime::hour()
 	{
-		return minute_;
+		return m_time.hour();
 	}
 
-	inline UWord DateTime::second()
+	inline Word DateTime::minute()
 	{
-		return second_;
+		return m_time.minute();
 	}
 
-	inline void DateTime::setDate(UShortL year, Word month, Word day)
+	inline Word DateTime::second()
 	{
-		year_ = year;
-		month_ = month;
-		day_= day;
+		return m_time.second();
 	}
 
-	inline void DateTime::setTime(Word hour, Word minute, Word second)
+	inline const Date& DateTime::date() const
 	{
-		this->hour_ = hour;
-		this->minute_ = minute;
-		this->second_ = second;
+		return m_date;
 	}
 
-	inline void DateTime::setYear(UShortL value)
+	inline const Time& DateTime::time() const
 	{
-		year_ = value;
+		return m_time;
 	}
 
-	inline void DateTime::setMonth(Month value)
-	{
-		month_ = value;
-	}
-
-	inline void DateTime::setMonth(UWord value)
-	{
-		month_ = value;
-	}
-
-	inline void DateTime::setDay(UWord value)
-	{
-		day_ = value;
-	}
-
-	inline void DateTime::setHour(UWord value)
-	{
-		hour_ = value;
-	}
-
-	inline void DateTime::setMinute(UWord value)
-	{
-		minute_ = value;
-	}
-
-	inline void DateTime::setSecond(UWord value)
-	{
-		second_ = value;
-	}
 } /* namespace Art */
 #endif /* DATETIME_H_ */

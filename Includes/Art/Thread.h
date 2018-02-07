@@ -83,8 +83,7 @@ namespace Art
 		
 		template <class T>
 		Result start(T* instance, void (T::*method)());
-		void setStackSize(UShortL value);
-		
+		void setStackSize(Word value);
 
 	private:
 		void enqueueFunction(UWord function, UWord arg0, UWord arg1);
@@ -171,7 +170,7 @@ namespace Art
 		return startWithParameters(getMethodAddress(method), (UWord)instance, 0);
 	}
 
-	inline void Thread::setStackSize(UShortL value)
+	inline void Thread::setStackSize(Word value)
 	{
 		m_sp = (UWord*)value;
 	}

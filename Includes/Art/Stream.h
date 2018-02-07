@@ -42,7 +42,7 @@ namespace Art
 		Word readInt(Int& value);
 		Word readUInt(UInt& value);
 		Word readLine(Char* s, UWord length);
-		Word readDateTime(DateTime& value);
+		//Word readDateTime(DateTime& value);
 
 		Word writeChar(Char value);
 		Word writeByte(UByte value);
@@ -57,7 +57,7 @@ namespace Art
 		Word writeLine(const Char* s);
 		Word writeLine(const StringRef& value);
 		Word writeLine(const Expression& value);
-		Word writeDateTime(DateTime& value);
+		//Word writeDateTime(DateTime& value);
 	};
 
 }

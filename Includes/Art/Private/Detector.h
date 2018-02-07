@@ -28,9 +28,11 @@ namespace Art
 		{
 		public:
 			virtual ~Detector();
+
 		protected:
 			UWord flag() const;
 			virtual ExecutionLevel executionLevel() const;
+
 		private:
 			virtual void doEventIrq();
 			virtual void doEventSvc();

@@ -22,6 +22,7 @@ namespace Art
 
 	namespace Str
 	{
+	/*
 		extern Char* fromLongDateTime(Char* destination, DateTime& value);
 		extern Char* fromLongTime(Char* destination, DateTime& value);
 		extern Char* fromLongDate(Char* destination, DateTime& value);
@@ -29,7 +30,7 @@ namespace Art
 		extern Result toTime(DateTime& dt, const Char* source, UShortL size);		
 		extern Result toDate(DateTime& destination, const Char* source);
 		extern Result toDate(DateTime& destination, const Char* source, UShortL size);
-
+	*/
 		extern Char* copy(Char* destination, ShortL destinationSize, const Char* source);
 		extern Char* copy(Char* destination, ShortL destinationSize, const Char* source, ShortL sourceSize);
 		
